@@ -1,0 +1,48 @@
+/*
+	Combobox Demo Styling
+*/
+
+@import "partials/variables";
+@import "partials/mixins";
+
+/* Base Styling
+---------------------------------*/
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: $helvetica-font;
+	font-size: 100%;
+}
+
+ol, ul, li {
+	list-style: none;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+	
+	&:link, &:visited {
+
+	}
+
+	&:hover, &:active {
+
+	}
+}
+
+/* General Styling
+---------------------------------*/
+
+h1,
+.main {
+	padding: 20px;
+	margin: auto;
+	width: 960px;
+}
+
+.off {
+	display: none;
+}

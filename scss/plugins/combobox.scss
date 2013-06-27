@@ -1,0 +1,184 @@
+/**
+    ComboBox
+    created by Ted Lin, ted<at>onekingslane<dot>com
+    last modified => 03.19.13
+
+    @requires => partials/mixins.css.scss
+**/
+
+@import "partials/mixins";
+
+$combobox-fontcolor: #393f44;
+
+/*  General ComboBox Styling
+------------------------------------*/
+.custom_combobox {
+    position: relative;
+    width: 300px;
+
+    &.off {
+        display: none;
+    }
+} 
+
+.combobox_dropdown {
+    @include border-radius($border-color: #dce0e3);
+}
+
+.combobox_input {
+    @include border-radius($border-color: #dbe0e2, $radius-size: 5px 0 0 5px);
+    @include box-sizing;
+}
+
+/* Placeholder text color - These must be separated out or they won't work */
+::-webkit-input-placeholder {
+	color: $combobox-fontcolor;
+}
+
+
+:-moz-placeholder {
+	color: $combobox-fontcolor;
+}
+
+::-moz-placeholder {
+	color: $combobox-fontcolor;
+}
+
+:-ms-input-placeholder {
+	color: $combobox-fontcolor;
+}
+
+input[placeholder],
+.placeholder {
+	color: $combobox-fontcolor;
+
+	&:focus {
+		color: #ccc;
+	}
+}
+
+:focus::-webkit-input-placeholder {
+	color: #ccc;
+}
+
+:focus:-moz-placeholder {
+	color: #ccc;
+}
+
+:focus::-moz-placeholder {
+	color: #ccc;
+}
+
+:focus:-ms-input-placeholder {
+	color: #ccc;
+}
+
+.combobox_dropdowntrig {
+    @include border-radius($border-color: #DBDFE2, $radius-size: 0 4px 4px 0);
+    @include box-sizing;
+
+	background: transparent url("../../images/icon_sprite.png") no-repeat 6px -73px;
+    border-left: none;
+    float: right;
+    height: 100%;
+    padding: 0 5px;
+    width: 30px;
+
+	//background: url("/assets/okl_icon_sprite.png") no-repeat center -73px, -moz-linear-gradient(-90deg, #DEE4E7 0%, #F3F6FB 100%);
+
+	&:active {
+		background: url("/assets/okl_icon_sprite.png") no-repeat center -73px, -moz-linear-gradient(-90deg, #DEE4E7 0%, #F3F6FB 100%);
+
+		/* Rectangle 3 copy 3: */
+		//background-image: -o-linear-gradient(-90deg, #DEE4E7 0%, #E8ECF1 48%, #E8ECF1 48%, #F3F6FB 100%);
+		//background-image: -moz-linear-gradient(-90deg, #DEE4E7 0%, #E8ECF1 48%, #E8ECF1 48%, #F3F6FB 100%);
+		//background-image: -webkit-linear-gradient(-90deg, #DEE4E7 0%, #E8ECF1 48%, #E8ECF1 48%, #F3F6FB 100%);
+		//background-image: -ms-linear-gradient(-90deg, #DEE4E7 0%, #E8ECF1 48%, #E8ECF1 48%, #F3F6FB 100%);
+		//background-image: linear-gradient(-180deg, #DEE4E7 0%, #E8ECF1 48%, #E8ECF1 48%, #F3F6FB 100%);
+	}
+}
+
+/*  ComboBox Input Field Styling
+------------------------------------*/
+.combobox_inputfield {
+    height: 37px;
+    overflow: hidden;
+}
+
+input[type="text"].combobox_input {
+    @include background-gradient($top-color: #ffffff, $bottom-color: #f7f9fa, $background-polyfill: #fff repeat-x left bottom, $top-hex: ffffff, $bottom-hex: f7f9fa);
+
+	border-color: #DBDFE2;
+    box-sizing: border-box;
+    color: $combobox-fontcolor;
+    float: left;
+    height: 100%;
+    padding: 10px;
+    width: 270px;
+
+	&:focus,
+	&:active {
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		border-color: #7BB8DB;
+		outline: none;
+	}
+
+    &.off {
+        display: none;
+    }
+}
+
+/*  ComboBox Dropdown Styling
+------------------------------------*/
+.combobox_dropdown {
+    background: #fff;
+    min-height: 25px;
+    max-height: 270px;
+    overflow: auto;
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 100%;
+    z-index: 1000;
+
+    &.off {
+        display: none;
+    }
+
+    > li {
+        padding: 10px;
+
+        &:last-child {
+            border-width: 0px;
+        }
+
+	    &.current_filter {
+	   		background: #EEF4F9;
+	   	}
+
+	    &:hover {
+            @include border-radius($radius-size: 5px);
+		    @include background-gradient($top-color: #9CC5D9, $bottom-color: #5396B6, $background-polyfill: #9CC5D9 repeat-x left bottom, $top-hex: 9CC5D9, $bottom-hex: 5396B6);
+
+            a {
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.combobox_result {
+	&:hover {
+		color: #fff;
+		text-shadow: 0px 1px 1px rgba(52,99,142,0.97);
+		text-decoration: none;
+	}
+
+    &.off {
+        display: none;
+    }
+}

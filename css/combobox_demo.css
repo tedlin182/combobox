@@ -1,0 +1,37 @@
+/*
+	Combobox Demo Styling
+*/
+/**
+*   OKL Variables
+*/
+/* VAM Dashboard */
+/* Mobile Responsive Styling */
+/**
+*   Mixins
+*/
+/* Base Styling
+---------------------------------*/
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+  font-size: 100%; }
+
+ol, ul, li {
+  list-style: none; }
+
+a {
+  color: #333;
+  text-decoration: none; }
+
+/* General Styling
+---------------------------------*/
+h1,
+.main {
+  padding: 20px;
+  margin: auto;
+  width: 960px; }
+
+.off {
+  display: none; }

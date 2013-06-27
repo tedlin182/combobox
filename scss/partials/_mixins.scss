@@ -1,0 +1,57 @@
+/**
+*   Mixins
+*/
+
+@mixin center-pos {
+    left: 50%;
+    position: fixed;
+    top: 50%;
+    z-index: 1000;
+}
+
+@mixin box-sizing {
+    -webkit-box-sizing: border-box;
+   	-moz-box-sizing: border-box;
+   	box-sizing: border-box;
+}
+
+@mixin box-shadow($shadow-posfx: 0px 1px 2px 0px, $shadow-colorinset: rgba(0,0,0,0.10)) {
+	-moz-box-shadow:	$shadow-posfx $shadow-colorinset;
+    -webkit-box-shadow: $shadow-posfx $shadow-colorinset;
+    box-shadow:	$shadow-posfx $shadow-colorinset;
+}
+@mixin drop-shadow($border-color: #ccc, $shadow-color: #333, $shadow-pos: 0px 0px 8px) {
+	border: 1px solid $border-color;
+	-moz-box-shadow: $shadow-pos $shadow-color; /* FF3.5+ */
+    -webkit-box-shadow: $shadow-pos $shadow-color; /* Saf3.0+, Chrome */
+    box-shadow: $shadow-pos $shadow-color; /* Opera 10.5, IE9, Chrome 10+ */
+}
+
+@mixin border-radius($border-color: #ccc, $radius-size: 5px) {
+	border: 1px solid $border-color;
+	border-radius: $radius-size;
+	-moz-border-radius: $radius-size;
+	-webkit-border-radius: $radius-size;
+}
+
+@mixin css-transitions($transition-prop: all, $transition-duration: 1s, $transition-timing: linear, $transition-delay: 0) {
+    -webkit-transition: $transition-prop $transition-duration $transition-timing $transition-delay;
+    -moz-transition: $transition-prop $transition-duration $transition-timing $transition-delay;
+    -ms-transition: $transition-prop $transition-duration $transition-timing $transition-delay;
+    -o-transition: $transition-prop $transition-duration $transition-timing $transition-delay;
+    transition: $transition-prop $transition-duration $transition-timing $transition-delay;
+}
+
+@mixin background-gradient($position: top, $top-color: #739168, $bottom-color: #335028, $background-polyfill: $top-color url("forms/grn_btn_bg.png") repeat-x left bottom, $bottom-hex: 335028, $top-hex: 739168) {
+    background:  $background-polyfill;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($top-color), to($bottom-color));
+    background: -webkit-linear-gradient($position, $top-color, $bottom-color);
+    background: -moz-linear-gradient($position, $top-color, $bottom-color);
+    background: -ms-linear-gradient($position, $top-color, $bottom-color);
+    background: -o-linear-gradient($position, $top-color, $bottom-color);
+
+    /* IE6–IE9 */
+    //filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99#{$top-hex},endColorstr=#99#{$bottom-hex})";
+    //-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99#{$top-hex},endColorstr=#99#{$bottom-hex})";
+    //zoom: 1;
+}

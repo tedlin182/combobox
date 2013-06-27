@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Combobox Demo</title>
+  <link href="css/base/normalize.css" rel="stylesheet" media="all" type="text/css">
+  <link href="css/plugins/combobox.css" rel="stylesheet" media="all" type="text/css">
+  <link href="css/combobox_demo.css" rel="stylesheet" media="all" type="text/css">
+</head>
+<body>
+
+	<header>
+		<h1>Combobox</h1>
+	</header>
+
+	<section class="main">
+		<ul>
+			<li>Requires jQuery 1.9+</li>
+			<li>Typeahead + Dropdown Menu</li>
+			<li>Simply supply HTML list of dropdown items, and target list in plugin initiazlize</li>
+		</ul>
+
+		<section class="example">
+			<ul class="combobox off">
+				<li><a href="#" data-id="10" class="combobox_result">Adam</a></li>
+				<li><a href="#" data-id="11" class="combobox_result">Scott</a></li>
+				<li><a href="#" data-id="12" class="combobox_result">Carrie</a></li>
+				<li><a href="#" data-id="13" class="combobox_result">Caryn</a></li>
+				<li><a href="#" data-id="14" class="combobox_result">Ted</a></li>
+				<li><a href="#" data-id="15" class="combobox_result">Bob</a></li>
+				<li><a href="#" data-id="16" class="combobox_result">Jill</a></li>
+				<li><a href="#" data-id="17" class="combobox_result">John</a></li>
+				<li><a href="#" data-id="18" class="combobox_result">Amanda</a></li>
+				<li><a href="#" data-id="19" class="combobox_result">Steve</a></li>
+				<li><a href="#" data-id="20" class="combobox_result">Chris</a></li>
+			</ul>
+		</section>
+
+	</section>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="js/combobox.js"></script>
+
+	<script>
+		$(function () {
+			$(".combobox").combobox({
+				defaultDisplayVal: "Select a name",
+				dropdownItem: ".combobox_result",
+				selectItemCallback: function (context, $selectedItem, inputField, val, id) {
+					alert("Hi there " + val);
+				}
+			});
+		});
+	</script>
+</body>
+</html>
